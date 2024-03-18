@@ -22,7 +22,7 @@ app.use(cors())
 // })
 
 //routes
-app.use('/api/v1/urls',urlRoutes)
+app.use('/urls',urlRoutes)
 
 
 //rest api
