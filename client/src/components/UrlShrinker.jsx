@@ -12,7 +12,7 @@ const UrlShrinker = () => {
     //get all urls
     const getAll = async () => {
         try {
-            const {data} = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/v1/urls/all-urls`);
+            const {data} = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/urls/all-urls`);
             console.log(data)
             setAllurls(data?.allURLs);
             console.log(allurls)
@@ -30,7 +30,7 @@ const UrlShrinker = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const {data} = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/v1/urls/get-url`, {fullurl,note});
+            const {data} = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/urls/get-url`, {fullurl,note});
             await getAll();
             setShort(data?.newURL?.shortID)
 
@@ -49,7 +49,7 @@ const UrlShrinker = () => {
     const handleSearch = async (e) => {
         e.preventDefault();
         try {
-            const {data} = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/v1/urls/search/${searchText}`);
+            const {data} = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/urls/search/${searchText}`);
             if(data?.success){
             setSearchResult(data?.results);
             console.log(searchResult);
